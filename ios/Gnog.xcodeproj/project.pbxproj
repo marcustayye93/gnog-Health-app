@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+		83F15CD33526EB5404639C55 /* GnogApp.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/GnogApp.swift;
+			sourceTree = "<group>";
+		};
+		E7496875EAB46ACD24F13BEB /* Models.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Models.swift;
+			sourceTree = "<group>";
+		};
+		269396C5BC5F1195CE43B0D7 /* PackLogic.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/PackLogic.swift;
+			sourceTree = "<group>";
+		};
+		A69E40CB1888200332F36E6F /* PredictionEngine.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/PredictionEngine.swift;
+			sourceTree = "<group>";
+		};
+		469D79F80BDAA3A3D6584B35 /* HealthKitManager.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/HealthKitManager.swift;
+			sourceTree = "<group>";
+		};
+		CB3385723611901B5E89E90F /* NotificationManager.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/NotificationManager.swift;
+			sourceTree = "<group>";
+		};
+		05F91DC17611864E70239A98 /* SnapshotWriter.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/SnapshotWriter.swift;
+			sourceTree = "<group>";
+		};
+		30F013E6B883E95D895AC11A /* FlowMood.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/FlowMood.swift;
+			sourceTree = "<group>";
+		};
+		C19E33F993CFDE8719C70F11 /* AppGroup.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Shared/AppGroup.swift;
+			sourceTree = "<group>";
+		};
+		56340A9B68CDD7F24BF9783F /* TodayView.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Views/TodayView.swift;
+			sourceTree = "<group>";
+		};
+		507652A568E955BCA5E41805 /* CalendarView.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Views/CalendarView.swift;
+			sourceTree = "<group>";
+		};
+		AF9865B69C30BFA50F59A42D /* PackView.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Views/PackView.swift;
+			sourceTree = "<group>";
+		};
+		044D6FD5DB36212C3F63FBE7 /* InsightsView.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Views/InsightsView.swift;
+			sourceTree = "<group>";
+		};
+		6125FF5A02917DA5C782DED4 /* SettingsView.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = Gnog/Views/SettingsView.swift;
+			sourceTree = "<group>";
+		};
+		175D5DE104216E388C824AB9 /* GnogWidgets.swift */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = sourcecode.swift;
+			path = GnogWidgets/GnogWidgets.swift;
+			sourceTree = "<group>";
+		};
+		1CA24D8A5A95EF66B494F2CE /* Info.plist */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = Gnog/Info.plist;
+			sourceTree = "<group>";
+		};
+		525FA97182AC38307641D4F9 /* Gnog.entitlements */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = Gnog/Gnog.entitlements;
+			sourceTree = "<group>";
+		};
+		A15E2205946651602117AD0B /* Info.plist */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			path = GnogWidgets/Info.plist;
+			sourceTree = "<group>";
+		};
+		C6EC135E4581B830D6EE5E78 /* GnogWidgets.entitlements */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.entitlements;
+			path = GnogWidgets/GnogWidgets.entitlements;
+			sourceTree = "<group>";
+		};
+		9CFD93C09BE7C0A2602D210C /* Assets.xcassets */ = {
+			isa = PBXFileReference;
+			lastKnownFileType = folder.assetcatalog;
+			path = Gnog/Assets.xcassets;
+			sourceTree = "<group>";
+		};
+		C425575BA417507CFDE847F0 /* Gnog.app */ = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = Gnog.app;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F26E8CBE80309F90E709A5D6 /* GnogWidgets.appex */ = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.app-extension;
+			includeInIndex = 0;
+			path = GnogWidgets.appex;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		08E415A8EF116C78086AAA04 /* GnogApp.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 83F15CD33526EB5404639C55 /* GnogApp.swift */;
+		};
+		D4C0131E9AA1F190BF0FF977 /* Models.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = E7496875EAB46ACD24F13BEB /* Models.swift */;
+		};
+		27078817D9A3D454BA3765C4 /* PackLogic.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 269396C5BC5F1195CE43B0D7 /* PackLogic.swift */;
+		};
+		600D72EF00BEE1E5DDB86DA9 /* PredictionEngine.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = A69E40CB1888200332F36E6F /* PredictionEngine.swift */;
+		};
+		DC1AA19323C01566052C0F13 /* HealthKitManager.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 469D79F80BDAA3A3D6584B35 /* HealthKitManager.swift */;
+		};
+		338E44ADC3735B4196133C46 /* NotificationManager.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = CB3385723611901B5E89E90F /* NotificationManager.swift */;
+		};
+		DEC4AF31A537FA8074A6EBC4 /* SnapshotWriter.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 05F91DC17611864E70239A98 /* SnapshotWriter.swift */;
+		};
+		92B4F567CDDFCC6B328B66B6 /* FlowMood.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 30F013E6B883E95D895AC11A /* FlowMood.swift */;
+		};
+		8C92E19E25ED5078BFEA195C /* AppGroup.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = C19E33F993CFDE8719C70F11 /* AppGroup.swift */;
+		};
+		0CB56A4EC887CD62328E4DF9 /* TodayView.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 56340A9B68CDD7F24BF9783F /* TodayView.swift */;
+		};
+		F6525D68EE319552F4D5F0F8 /* CalendarView.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 507652A568E955BCA5E41805 /* CalendarView.swift */;
+		};
+		7772D04A40D700928BCB459D /* PackView.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = AF9865B69C30BFA50F59A42D /* PackView.swift */;
+		};
+		BF6366D2CD543DD06FDA2F5F /* InsightsView.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 044D6FD5DB36212C3F63FBE7 /* InsightsView.swift */;
+		};
+		474F26716CE2831453BD45BA /* SettingsView.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 6125FF5A02917DA5C782DED4 /* SettingsView.swift */;
+		};
+		581A3580B4BF3A9636D04FA3 /* GnogWidgets.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = 175D5DE104216E388C824AB9 /* GnogWidgets.swift */;
+		};
+		CF10A542983A8ADA07D2EA31 /* AppGroup.swift in Sources */ = {
+			isa = PBXBuildFile;
+			fileRef = C19E33F993CFDE8719C70F11 /* AppGroup.swift */;
+		};
+		76473D385462E2CEBCA52E37 /* Assets.xcassets in Resources */ = {
+			isa = PBXBuildFile;
+			fileRef = 9CFD93C09BE7C0A2602D210C /* Assets.xcassets */;
+		};
+		0B659B1B622E19CAD9171705 /* GnogWidgets.appex in Embed App Extensions */ = {
+			isa = PBXBuildFile;
+			fileRef = F26E8CBE80309F90E709A5D6 /* GnogWidgets.appex */;
+			settings = {
+				ATTRIBUTES = (RemoveHeadersOnCopy, );
+			};
+		};
+		602102B1A066CCAB6E2DD0AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08E415A8EF116C78086AAA04,
+				D4C0131E9AA1F190BF0FF977,
+				27078817D9A3D454BA3765C4,
+				600D72EF00BEE1E5DDB86DA9,
+				DC1AA19323C01566052C0F13,
+				338E44ADC3735B4196133C46,
+				DEC4AF31A537FA8074A6EBC4,
+				92B4F567CDDFCC6B328B66B6,
+				8C92E19E25ED5078BFEA195C,
+				0CB56A4EC887CD62328E4DF9,
+				F6525D68EE319552F4D5F0F8,
+				7772D04A40D700928BCB459D,
+				BF6366D2CD543DD06FDA2F5F,
+				474F26716CE2831453BD45BA,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		403189D37DF350A8A687DB09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1AC03139D1883C488C0D03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76473D385462E2CEBCA52E37,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3B29070355DF12018A7D0838 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B659B1B622E19CAD9171705,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			name = "Embed App Extensions";
+		};
+		602102B1A066CCAB6E2DD0AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				581A3580B4BF3A9636D04FA3,
+				CF10A542983A8ADA07D2EA31,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		403189D37DF350A8A687DB09 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F1AC03139D1883C488C0D03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38DF21AEF4612506D6BE5CBE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				56340A9B68CDD7F24BF9783F,
+				507652A568E955BCA5E41805,
+				AF9865B69C30BFA50F59A42D,
+				044D6FD5DB36212C3F63FBE7,
+				6125FF5A02917DA5C782DED4,
+			);
+			sourceTree = "<group>";
+			path = Views;
+		};
+		B46A6AFB1DC88CE23F6E63F1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C19E33F993CFDE8719C70F11,
+			);
+			sourceTree = "<group>";
+			path = Shared;
+		};
+		24B107B50C0CD45FEE81C296 /* Gnog */ = {
+			isa = PBXGroup;
+			children = (
+				83F15CD33526EB5404639C55,
+				E7496875EAB46ACD24F13BEB,
+				269396C5BC5F1195CE43B0D7,
+				A69E40CB1888200332F36E6F,
+				469D79F80BDAA3A3D6584B35,
+				CB3385723611901B5E89E90F,
+				05F91DC17611864E70239A98,
+				30F013E6B883E95D895AC11A,
+				38DF21AEF4612506D6BE5CBE,
+				B46A6AFB1DC88CE23F6E63F1,
+				1CA24D8A5A95EF66B494F2CE,
+				525FA97182AC38307641D4F9,
+				9CFD93C09BE7C0A2602D210C,
+			);
+			sourceTree = "<group>";
+			path = Gnog;
+		};
+		B2D7B144E67549226F6F6540 /* GnogWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				175D5DE104216E388C824AB9,
+				A15E2205946651602117AD0B,
+				C6EC135E4581B830D6EE5E78,
+			);
+			sourceTree = "<group>";
+			path = GnogWidgets;
+		};
+		2F3A6B1E78F896718625FF06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C425575BA417507CFDE847F0,
+				F26E8CBE80309F90E709A5D6,
+			);
+			sourceTree = "<group>";
+			name = Products;
+		};
+		24B107B50C0CD45FEE81C296 /* Gnog */ = {
+			isa = PBXGroup;
+			children = (
+				24B107B50C0CD45FEE81C296,
+				B2D7B144E67549226F6F6540,
+				2F3A6B1E78F896718625FF06,
+			);
+			sourceTree = "<group>";
+			name = Gnog;
+		};
+		6C28077FB15CEA76DC83F79D /* proj:Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+			};
+			name = "proj:Debug";
+		};
+		DF7BAF88C1080F7029BBDC8B /* proj:Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = "proj:Release";
+		};
+		472EBD95A482287843ECA9A9 /* project */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C28077FB15CEA76DC83F79D,
+				DF7BAF88C1080F7029BBDC8B,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBBBD7F91FC1FC106BBBFD3E /* app:Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Gnog/Gnog.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Gnog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnog.schedules;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "app:Debug";
+		};
+		6BAACA2AC8551C5164C47550 /* app:Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Gnog/Gnog.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Gnog/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnog.schedules;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = "app:Release";
+		};
+		5AA702F1A807EFA6E3995B09 /* app */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBBBD7F91FC1FC106BBBFD3E,
+				6BAACA2AC8551C5164C47550,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E1473D02642A6DAE403EAC42 /* widget:Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GnogWidgets/GnogWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GnogWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnog.schedules.GnogWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = "widget:Debug";
+		};
+		CE918F4E8BF2B50DD48C0D57 /* widget:Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GnogWidgets/GnogWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GnogWidgets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/Frameworks", "@executable_path/../../Frameworks");
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gnog.schedules.GnogWidgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = "widget:Release";
+		};
+		7CAD0B3A0717B7AA209E4B20 /* widget */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1473D02642A6DAE403EAC42,
+				CE918F4E8BF2B50DD48C0D57,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99E6A51DA0B86FE48AEB34ED /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0661F517A86C8F5C87C0EDBA;
+			remoteInfo = GnogWidgets;
+		};
+		51706C2E79528CC907140437 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0661F517A86C8F5C87C0EDBA /* GnogWidgets */;
+			targetProxy = 99E6A51DA0B86FE48AEB34ED /* PBXContainerItemProxy */;
+		};
+		E3435DDA2687639586BF0B70 /* Gnog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AA702F1A807EFA6E3995B09 /* Build configuration list for PBXNativeTarget "Gnog" */;
+			buildPhases = (
+				602102B1A066CCAB6E2DD0AD,
+				403189D37DF350A8A687DB09,
+				8F1AC03139D1883C488C0D03,
+				3B29070355DF12018A7D0838,
+			);
+			buildRules = ();
+			dependencies = (
+				51706C2E79528CC907140437,
+			);
+			name = Gnog;
+			productName = Gnog;
+			productReference = C425575BA417507CFDE847F0 /* Gnog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0661F517A86C8F5C87C0EDBA /* GnogWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7CAD0B3A0717B7AA209E4B20 /* Build configuration list for PBXNativeTarget "GnogWidgets" */;
+			buildPhases = (
+				602102B1A066CCAB6E2DD0AD,
+				403189D37DF350A8A687DB09,
+				8F1AC03139D1883C488C0D03,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = GnogWidgets;
+			productName = GnogWidgets;
+			productReference = F26E8CBE80309F90E709A5D6 /* GnogWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		46F86FAA6BBF9AC94A7E4595 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					E3435DDA2687639586BF0B70 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					0661F517A86C8F5C87C0EDBA = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 472EBD95A482287843ECA9A9 /* Build configuration list for PBXProject "Gnog" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 24B107B50C0CD45FEE81C296;
+			productRefGroup = 2F3A6B1E78F896718625FF06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3435DDA2687639586BF0B70,
+				0661F517A86C8F5C87C0EDBA,
+			);
+		};
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595 /* Project object */;
+}

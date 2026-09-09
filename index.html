@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gnog Schedules</title>
+<meta name="description" content="Gnog Schedules — a private period and medication calendar.">
+<meta name="theme-color" content="#b4566a">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Gnog">
+<link rel="stylesheet" href="css/app.css?v=2">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Gnog Schedules</span></div>
+    <div class="today-date" id="todayDate"></div>
+  </header>
+
+  <main id="views">
+    <!-- TODAY -->
+    <section class="view" id="view-today" data-view="today">
+      <div class="card hero" id="heroCard"></div>
+      <div id="medLists"></div>
+      <div class="card">
+        <h2>Log today</h2>
+        <div class="log-row">
+          <span class="log-label">Flow</span>
+          <div class="chip-row" id="flowChips"></div>
+        </div>
+        <div class="log-row">
+          <span class="log-label">Mood</span>
+          <div class="chip-row" id="moodChips"></div>
+        </div>
+        <div class="log-row">
+          <span class="log-label">Note</span>
+          <input type="text" id="dayNote" class="text-input" placeholder="Anything worth remembering…" maxlength="200">
+        </div>
+        <button class="btn primary" id="saveDayBtn">Save today's log</button>
+        <div class="saved-hint" id="savedHint" hidden>Saved ✓</div>
+      </div>
+    </section>
+
+    <!-- CALENDAR -->
+    <section class="view" id="view-calendar" data-view="calendar" hidden>
+      <div class="card">
+        <div class="cal-head">
+          <button class="btn ghost" id="calPrev" aria-label="Previous month">‹</button>
+          <h2 id="calTitle"></h2>
+          <button class="btn ghost" id="calNext" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="legend">
+          <span><i class="dot period"></i>Period</span>
+          <span><i class="dot predicted"></i>Predicted</span>
+          <span><i class="dot logged"></i>Logged</span>
+        </div>
+      </div>
+      <div class="card" id="dayDetail" hidden></div>
+    </section>
+
+    <!-- PACK -->
+    <section class="view" id="view-pack" data-view="pack" hidden>
+      <div class="card">
+        <h2>Pill pack</h2>
+        <p class="muted" id="packSummary"></p>
+        <div class="pack-grid" id="packGrid"></div>
+        <div class="legend">
+          <span><i class="dot active"></i>Active pill</span>
+          <span><i class="dot placebo"></i>Placebo</span>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Adjust schedule</h2>
+        <p class="muted">If a pack starts late or you skip days, update when the current pack's day 1 was. Everything recalculates.</p>
+        <label class="field">Current pack started (day 1 of active pills)
+          <input type="date" id="packAnchorInput" class="text-input">
+        </label>
+        <div class="btn-row">
+          <button class="btn" id="packTodayBtn">Start new pack today</button>
+          <button class="btn" id="packShiftBack">−1 day</button>
+          <button class="btn" id="packShiftFwd">+1 day</button>
+        </div>
+        <button class="btn primary" id="savePackBtn">Save pack schedule</button>
+        <div class="sync-box">
+          <p class="muted">Changed your pack? Send this code to Muse so your reminders stay in sync:</p>
+          <code id="syncCode" class="sync-code"></code>
+          <button class="btn small" id="copySyncBtn">Copy code</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSIGHTS -->
+    <section class="view" id="view-insights" data-view="insights" hidden>
+      <div class="card"><h2>Cycle history</h2><div id="cycleHistory"></div></div>
+      <div class="card"><h2>Moods by cycle phase</h2><div id="moodInsights"></div></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="view" id="view-settings" data-view="settings" hidden>
+      <div class="card">
+        <h2>Reminders</h2>
+        <p class="muted">Notifications are sent to this phone once set up below. Your health data stays on this device.</p>
+        <div id="pushStatus" class="muted"></div>
+        <button class="btn primary" id="enablePushBtn">Enable reminders</button>
+        <div id="pushCodeWrap" hidden>
+          <p class="muted">One-time setup: copy this code and send it to Muse in chat. After that, reminders arrive automatically.</p>
+          <textarea id="pushCode" class="text-input code" rows="4" readonly></textarea>
+          <button class="btn small" id="copyPushBtn">Copy code</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Medications</h2>
+        <div id="medEditor"></div>
+        <button class="btn" id="addGroupBtn">+ Add reminder time</button>
+      </div>
+      <div class="card">
+        <h2>Your data</h2>
+        <div class="btn-row">
+          <button class="btn" id="exportJsonBtn">Export JSON</button>
+          <button class="btn" id="exportCsvBtn">Export CSV</button>
+        </div>
+        <label class="field">Restore from backup (JSON)
+          <input type="file" id="importFile" accept="application/json">
+        </label>
+        <p class="muted small">Gnog Schedules keeps everything on this phone. Export any time so your history is never trapped.</p>
+      </div>
+      <div class="card">
+        <h2>About</h2>
+        <p class="muted small">Gnog Schedules v1. A private period &amp; medication calendar. Reminders are sent by your assistant; no account, no tracking, no ads.</p>
+      </div>
+    </section>
+  </main>
+
+  <nav class="tabbar" id="tabbar">
+    <button class="tab active" data-tab="today"><span class="tab-ico">◉</span>Today</button>
+    <button class="tab" data-tab="calendar"><span class="tab-ico">▦</span>Calendar</button>
+    <button class="tab" data-tab="pack"><span class="tab-ico">▤</span>Pack</button>
+    <button class="tab" data-tab="insights"><span class="tab-ico">◔</span>Insights</button>
+    <button class="tab" data-tab="settings"><span class="tab-ico">⚙</span>Settings</button>
+  </nav>
+</div>
+<script src="js/app.js?v=2"></script>
+</body>
+</html>
