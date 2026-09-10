@@ -1,5 +1,5 @@
 /* Gnog Schedules service worker — offline shell + push notifications */
-const CACHE = "gnog-v2";
+const CACHE = "gnog-v3";
 const SHELL = [
   "./",
   "./index.html",

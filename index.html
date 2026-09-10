@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Gnog">
-<link rel="stylesheet" href="css/app.css?v=2">
+<link rel="stylesheet" href="css/app.css?v=3">
 </head>
 <body>
 <div id="app">
@@ -113,6 +113,15 @@
         </div>
       </div>
       <div class="card">
+        <h2>Appearance</h2>
+        <p class="muted">Pick a color scheme. It works in light and dark mode.</p>
+        <div class="theme-row" id="themeRow">
+          <button class="theme-btn" data-theme="green"><span class="dot" style="background:#3d8f5f"></span>Green</button>
+          <button class="theme-btn" data-theme="blue"><span class="dot" style="background:#3f7fc4"></span>Blue</button>
+          <button class="theme-btn" data-theme="red"><span class="dot" style="background:#c0524f"></span>Red</button>
+        </div>
+      </div>
+      <div class="card">
         <h2>Medications</h2>
         <div id="medEditor"></div>
         <button class="btn" id="addGroupBtn">+ Add reminder time</button>
@@ -143,6 +152,6 @@
     <button class="tab" data-tab="settings"><span class="tab-ico">⚙</span>Settings</button>
   </nav>
 </div>
-<script src="js/app.js?v=2"></script>
+<script src="js/app.js?v=3"></script>
 </body>
 </html>

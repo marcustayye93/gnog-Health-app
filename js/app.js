@@ -49,6 +49,7 @@ function defaultState() {
     ],
     taken: {},                      // "YYYY-MM-DD" -> {medId: true}
     packAnchor: "2026-09-12",        // day 1 of an active pack
+    theme: "green",                   // green | blue | red
     settings: { cycleLength: 28 }
   };
 }
@@ -540,6 +541,11 @@ async function enablePush() {
 }
 
 /* ---------- tabs & init ---------- */
+function applyTheme() {
+  document.documentElement.dataset.theme = S.theme || "green";
+  document.querySelectorAll(".theme-btn").forEach((b) =>
+    b.classList.toggle("active", b.dataset.theme === (S.theme || "green")));
+}
 function showTab(name) {
   document.querySelectorAll(".tab").forEach((t) => t.classList.toggle("active", t.dataset.tab === name));
   document.querySelectorAll(".view").forEach((v) => { v.hidden = v.dataset.view !== name; });
@@ -553,8 +559,12 @@ function showTab(name) {
 function renderAll() { renderToday(); renderCalendar(); renderPack(); renderInsights(); renderMedEditor(); }
 
 document.addEventListener("DOMContentLoaded", () => {
+  applyTheme();
   if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(() => {});
   document.querySelectorAll(".tab").forEach((t) => { t.onclick = () => showTab(t.dataset.tab); });
+  document.querySelectorAll(".theme-btn").forEach((b) => {
+    b.onclick = () => { S.theme = b.dataset.theme; save(); applyTheme(); };
+  });
   document.getElementById("saveDayBtn").onclick = saveDay;
   document.getElementById("calPrev").onclick = () => { calCursor.setMonth(calCursor.getMonth() - 1); renderCalendar(); };
   document.getElementById("calNext").onclick = () => { calCursor.setMonth(calCursor.getMonth() + 1); renderCalendar(); };
