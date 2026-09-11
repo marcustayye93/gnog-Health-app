@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Gnog">
-<link rel="stylesheet" href="css/app.css?v=3">
+<link rel="stylesheet" href="css/app.css?v=4">
 </head>
 <body>
 <div id="app">
@@ -60,6 +60,11 @@
         </div>
       </div>
       <div class="card" id="dayDetail" hidden></div>
+      <div class="card">
+        <h2>Daily log</h2>
+        <p class="muted small">Every logged day, newest first — easy to scroll back through with your doctor. The same record can be exported as a spreadsheet from Settings → Your data.</p>
+        <div id="historyList"></div>
+      </div>
     </section>
 
     <!-- PACK -->
@@ -152,6 +157,6 @@
     <button class="tab" data-tab="settings"><span class="tab-ico">⚙</span>Settings</button>
   </nav>
 </div>
-<script src="js/app.js?v=3"></script>
+<script src="js/app.js?v=4"></script>
 </body>
 </html>

@@ -211,9 +211,10 @@ function renderToday() {
   }
 
   // log form
-  renderChips();
+  loadSelections(); renderChips();
   const day = S.days[t] || {};
-  document.getElementById("dayNote").value = day.note || "";
+  const noteInput = document.getElementById("dayNote");
+  if (document.activeElement !== noteInput) noteInput.value = day.note || "";
   document.getElementById("savedHint").hidden = true;
 }
 function toggleTaken(dateStr, medId) {
@@ -223,11 +224,12 @@ function toggleTaken(dateStr, medId) {
   save(); renderToday();
 }
 let selFlow = null, selMoods = [];
-function renderChips() {
-  const t = todayStr();
-  const day = S.days[t] || {};
+function loadSelections() {
+  const day = S.days[todayStr()] || {};
   selFlow = day.flow || null;
   selMoods = (day.moods || []).slice();
+}
+function renderChips() {
   const fc = document.getElementById("flowChips");
   fc.innerHTML = "";
   for (const f of FLOWS) {
@@ -303,18 +305,13 @@ function renderCalendar() {
     b.onclick = () => showDayDetail(ds);
     grid.appendChild(b);
   }
+  renderHistory();
 }
 function showDayDetail(ds) {
   const box = document.getElementById("dayDetail");
   const day = S.days[ds] || {};
-  const p = packInfo(ds);
   const taken = S.taken[ds] || {};
-  const medNames = [];
-  for (const g of S.medGroups)
-    for (const med of g.meds) {
-      if (med.packOnly && p.phase === "placebo") continue;
-      medNames.push((taken[med.id] ? "✓ " : "○ ") + med.name);
-    }
+  const medNames = scheduledMeds(ds).map((med) => (taken[med.id] ? "✓ " : "○ ") + med.name);
   box.hidden = false;
   const isStart = S.periodStarts.includes(ds);
   box.innerHTML = "<h3>" + pretty(ds) + "</h3>" +
@@ -342,6 +339,41 @@ function showDayDetail(ds) {
 }
 
 /* ---------- PACK ---------- */
+function scheduledMeds(ds) {
+  const p = packInfo(ds);
+  const out = [];
+  for (const g of S.medGroups)
+    for (const med of g.meds) {
+      if (med.packOnly && p.phase === "placebo") continue;
+      out.push(med);
+    }
+  return out;
+}
+function renderHistory() {
+  const box = document.getElementById("historyList");
+  if (!box) return;
+  const dates = [...new Set([...Object.keys(S.days), ...Object.keys(S.taken)])]
+    .filter((ds) => {
+      const d = S.days[ds] || {};
+      return d.flow || (d.moods || []).length || d.note || Object.keys(S.taken[ds] || {}).length;
+    })
+    .sort().reverse().slice(0, 180);
+  if (!dates.length) { box.innerHTML = '<p class="muted">No entries yet. Logs appear here the moment you save them.</p>'; return; }
+  box.innerHTML = dates.map((ds) => {
+    const d = S.days[ds] || {};
+    const p = packInfo(ds);
+    const sched = scheduledMeds(ds);
+    const taken = S.taken[ds] || {};
+    const nTaken = sched.filter((m) => taken[m.id]).length;
+    const bits = [];
+    if (d.flow) bits.push((FLOW_EMOJI[d.flow] || "") + " " + d.flow);
+    if ((d.moods || []).length) bits.push((d.moods || []).map((x) => (MOOD_EMOJI[x] || "") + " " + x).join(", "));
+    if (d.note) bits.push("\u201C" + esc(d.note) + "\u201D");
+    return '<div class="hist-row"><div class="hist-date">' + pretty(ds) + "</div>" +
+      '<div class="hist-main">' + (bits.join(" · ") || '<span class="muted">—</span>') + "</div>" +
+      '<div class="hist-sub">' + packPhaseLabel(ds) + " · meds " + nTaken + "/" + sched.length + "</div></div>";
+  }).join("");
+}
 function renderPack() {
   const t = todayStr();
   const start = S.packAnchor;
@@ -474,7 +506,7 @@ function download(name, text, type) {
   a.download = name; a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 5000);
 }
-function exportJSON() { download("ggnog-schedules-backup.json", JSON.stringify(S, null, 2), "application/json"); }
+function exportJSON() { download("gnog-schedules-backup.json", JSON.stringify(S, null, 2), "application/json"); }
 function exportCSV() {
   const rows = [["date", "flow", "moods", "note", "pack_phase", "pack_day", "meds_taken"]];
   const dates = new Set([...Object.keys(S.days), ...Object.keys(S.taken), ...S.periodStarts]);
@@ -484,7 +516,7 @@ function exportCSV() {
     rows.push([ds, d.flow || "", (d.moods || []).join("|"), '"' + (d.note || "").replace(/"/g, '""') + '"',
       p.phase, p.day, Object.keys(S.taken[ds] || {}).join("|")]);
   }
-  download("ggnog-schedules.csv", rows.map((r) => r.join(",")).join("\n"), "text/csv");
+  download("gnog-schedules.csv", rows.map((r) => r.join(",")).join("\n"), "text/csv");
 }
 function importFile(ev) {
   const f = ev.target.files[0];
@@ -556,7 +588,7 @@ function showTab(name) {
   if (name === "settings") { renderMedEditor(); }
   window.scrollTo(0, 0);
 }
-function renderAll() { renderToday(); renderCalendar(); renderPack(); renderInsights(); renderMedEditor(); }
+function renderAll() { renderToday(); renderCalendar(); renderPack(); renderInsights(); renderMedEditor(); renderHistory(); }
 
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme();
@@ -595,5 +627,16 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("exportJsonBtn").onclick = exportJSON;
   document.getElementById("exportCsvBtn").onclick = exportCSV;
   document.getElementById("importFile").onchange = importFile;
+  // autosave the note as she types (debounced) so no entry is ever lost
+  let noteTimer = null;
+  document.getElementById("dayNote").addEventListener("input", (e) => {
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => {
+      const t = todayStr();
+      S.days[t] = Object.assign(S.days[t] || {}, { note: e.target.value.trim() });
+      save();
+      document.getElementById("savedHint").hidden = false;
+    }, 1200);
+  });
   renderAll();
 });

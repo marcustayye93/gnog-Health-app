@@ -34,14 +34,11 @@ body{
 }
 .brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:18px;letter-spacing:-.2px;}
 .brand-mark{
-  width:28px;height:28px;border-radius:9px;display:inline-block;flex:none;
-  background:var(--hero-grad);position:relative;
-  box-shadow:0 2px 8px rgba(180,86,106,.35);
-}
-.brand-mark::after{
-  content:"";position:absolute;left:9px;right:9px;top:7px;bottom:6px;
-  background:rgba(255,255,255,.95);border-radius:3px 3px 7px 7px;
-  box-shadow:0 -5px 0 -2px rgba(255,255,255,.95);
+  width:32px;height:32px;border-radius:10px;display:inline-block;flex:none;
+  background-color:#2b6cb0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='46' rx='21' ry='6.5' fill='%23a93226'/%3E%3Cpolygon points='35,7 21,42 47,40' fill='%23d43d3d'/%3E%3Cpolygon points='35,7 43,5 40,14' fill='%23d43d3d'/%3E%3Cpolygon points='25,33 43,31 45,37 23,39' fill='%237e2a20'/%3E%3Ccircle cx='50' cy='15' r='2.6' fill='%23ffd76a'/%3E%3Ccircle cx='14' cy='18' r='2' fill='%23ffd76a'/%3E%3C/svg%3E");
+  background-size:82%;background-position:center;background-repeat:no-repeat;
+  box-shadow:0 2px 8px rgba(43,108,176,.4);
 }
 .today-date{color:var(--muted);font-size:14px;}
 main{padding:14px 14px 0;}
@@ -253,3 +250,10 @@ html[data-theme="red"]{
   color:var(--ink);font-size:15px;font-weight:600;cursor:pointer;}
 .theme-btn .dot{width:18px;height:18px;border-radius:50%;flex:none;}
 .theme-btn.active{border-color:var(--rose);box-shadow:0 0 0 2px var(--rose-soft);}
+
+/* daily log history */
+.hist-row{padding:10px 2px;border-top:1px solid var(--line);}
+.hist-row:first-child{border-top:none;}
+.hist-date{font-weight:700;font-size:14px;}
+.hist-main{margin-top:2px;}
+.hist-sub{color:var(--muted);font-size:13px;margin-top:2px;}
