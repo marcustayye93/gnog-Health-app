@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Gnog">
-<link rel="stylesheet" href="css/app.css?v=4">
+<link rel="stylesheet" href="css/app.css?v=5">
 </head>
 <body>
 <div id="app">
@@ -104,6 +104,25 @@
       <div class="card"><h2>Moods by cycle phase</h2><div id="moodInsights"></div></div>
     </section>
 
+    <!-- ASK -->
+    <section class="view" id="view-ask" data-view="ask" hidden>
+      <div class="card">
+        <h2>Ask Muse</h2>
+        <p class="muted">Wondering if cravings, cramps, or moods are normal? Ask here — then paste it into your Muse chat and I'll answer you there.</p>
+        <label class="field">Your question
+          <textarea id="askInput" class="text-input" rows="3" maxlength="500" placeholder="e.g. Are cravings normal on day 5 of my period?"></textarea>
+        </label>
+        <label class="check-row"><input type="checkbox" id="askCtxToggle" checked> <span>Include my recent cycle context (shown below)</span></label>
+        <div class="ctx-preview" id="askCtxPreview"></div>
+        <button class="btn primary" id="askCopyBtn">Copy &amp; ask in Muse</button>
+        <p class="muted small" id="askHint" hidden>Copied ✓ — paste it into your Muse chat and I'll answer there. Nothing is sent automatically; you stay in control.</p>
+      </div>
+      <div class="card">
+        <h2>Recent questions</h2>
+        <div id="askHistory"></div>
+      </div>
+    </section>
+
     <!-- SETTINGS -->
     <section class="view" id="view-settings" data-view="settings" hidden>
       <div class="card">
@@ -154,9 +173,10 @@
     <button class="tab" data-tab="calendar"><span class="tab-ico">▦</span>Calendar</button>
     <button class="tab" data-tab="pack"><span class="tab-ico">▤</span>Pack</button>
     <button class="tab" data-tab="insights"><span class="tab-ico">◔</span>Insights</button>
+    <button class="tab" data-tab="ask"><span class="tab-ico">💬</span>Ask</button>
     <button class="tab" data-tab="settings"><span class="tab-ico">⚙</span>Settings</button>
   </nav>
 </div>
-<script src="js/app.js?v=4"></script>
+<script src="js/app.js?v=5"></script>
 </body>
 </html>

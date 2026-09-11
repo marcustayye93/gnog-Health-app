@@ -338,6 +338,71 @@ function showDayDetail(ds) {
   box.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
+/* ---------- ASK ---------- */
+function cycleDayNum(ds) {
+  const l = lastPeriodStart();
+  if (!l || ds < l) return null;
+  return diffDays(l, ds) + 1;
+}
+function buildAskContext() {
+  const t = todayStr();
+  const lines = ["Today: " + pretty(t)];
+  const pd = periodDayNumber(t);
+  const cyc = cycleDayNum(t);
+  const day = S.days[t] || {};
+  if (pd) lines.push("Period day " + pd + (day.flow ? " (flow: " + day.flow + ")" : ""));
+  else if (cyc) lines.push("Cycle day " + cyc);
+  const p = packInfo(t);
+  lines.push("Pill pack: " + (p.phase === "active" ? "active pill " + p.day + "/21" : "placebo " + p.day + "/7"));
+  const seen = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = S.days[addDays(t, -i)] || {};
+    for (const m of (d.moods || [])) if (!seen.includes(m)) seen.push(m);
+  }
+  if (seen.length) lines.push("Recent moods: " + seen.join(", "));
+  const nx = predictedNextPeriod();
+  if (nx) lines.push("Next predicted period: " + pretty(nx));
+  const medBits = S.medGroups.map((g) =>
+    g.time + " " + g.meds.map((m) => m.name + (m.packOnly && p.phase === "placebo" ? " (paused)" : "")).join(", "));
+  if (medBits.length) lines.push("Reminders: " + medBits.join(" · "));
+  return lines.join("\n");
+}
+function copyText(s) {
+  const done = () => { document.getElementById("askHint").hidden = false; };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(s).then(done).catch(() => { fallbackCopy(s); done(); });
+  } else { fallbackCopy(s); done(); }
+}
+function fallbackCopy(s) {
+  const ta = document.createElement("textarea");
+  ta.value = s; ta.style.position = "fixed"; ta.style.opacity = "0";
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+function renderAsk() {
+  const prev = document.getElementById("askCtxPreview");
+  if (prev) prev.textContent = buildAskContext();
+  const box = document.getElementById("askHistory");
+  if (!box) return;
+  const h = S.askHistory || [];
+  if (!h.length) { box.innerHTML = '<p class="muted">No questions yet.</p>'; return; }
+  box.innerHTML = "";
+  h.slice().reverse().forEach((item) => {
+    const row = document.createElement("div");
+    row.className = "ask-hist-row";
+    const q = document.createElement("div");
+    q.className = "ask-hist-q"; q.textContent = item.q;
+    const d = document.createElement("div");
+    d.className = "ask-hist-d"; d.textContent = item.date;
+    const b = document.createElement("button");
+    b.className = "btn small"; b.textContent = "Copy";
+    b.onclick = () => copyText("GNOGASK: " + item.q);
+    row.appendChild(q); row.appendChild(d); row.appendChild(b);
+    box.appendChild(row);
+  });
+}
+
 /* ---------- PACK ---------- */
 function scheduledMeds(ds) {
   const p = packInfo(ds);
@@ -586,9 +651,10 @@ function showTab(name) {
   if (name === "pack") renderPack();
   if (name === "insights") renderInsights();
   if (name === "settings") { renderMedEditor(); }
+  if (name === "ask") { renderAsk(); document.getElementById("askHint").hidden = true; }
   window.scrollTo(0, 0);
 }
-function renderAll() { renderToday(); renderCalendar(); renderPack(); renderInsights(); renderMedEditor(); renderHistory(); }
+function renderAll() { renderToday(); renderCalendar(); renderPack(); renderInsights(); renderMedEditor(); renderHistory(); renderAsk(); }
 
 document.addEventListener("DOMContentLoaded", () => {
   applyTheme();
@@ -627,6 +693,18 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("exportJsonBtn").onclick = exportJSON;
   document.getElementById("exportCsvBtn").onclick = exportCSV;
   document.getElementById("importFile").onchange = importFile;
+  document.getElementById("askCopyBtn").onclick = () => {
+    const q = document.getElementById("askInput").value.trim();
+    if (!q) { document.getElementById("askInput").focus(); return; }
+    const withCtx = document.getElementById("askCtxToggle").checked;
+    const msg = "GNOGASK: " + q +
+      (withCtx ? "\n\n— cycle context shared by Chesa from Gnog Schedules —\n" + buildAskContext() : "");
+    copyText(msg);
+    S.askHistory = (S.askHistory || []).concat([{ q, date: todayStr() }]).slice(-30);
+    save();
+    document.getElementById("askInput").value = "";
+    renderAsk();
+  };
   // autosave the note as she types (debounced) so no entry is ever lost
   let noteTimer = null;
   document.getElementById("dayNote").addEventListener("input", (e) => {

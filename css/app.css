@@ -257,3 +257,14 @@ html[data-theme="red"]{
 .hist-date{font-weight:700;font-size:14px;}
 .hist-main{margin-top:2px;}
 .hist-sub{color:var(--muted);font-size:13px;margin-top:2px;}
+
+/* ask tab */
+.check-row{display:flex;align-items:center;gap:10px;margin:10px 0;font-size:15px;cursor:pointer;}
+.check-row input{width:19px;height:19px;accent-color:var(--rose);flex:none;}
+.ctx-preview{background:var(--bg);border:1px dashed var(--line);border-radius:12px;
+  padding:10px 12px;font-size:13px;line-height:1.6;white-space:pre-line;margin:4px 0 12px;color:var(--muted);}
+.ask-hist-row{display:flex;align-items:center;gap:10px;padding:9px 2px;border-top:1px solid var(--line);}
+.ask-hist-row:first-child{border-top:none;}
+.ask-hist-q{flex:1;font-size:14px;}
+.ask-hist-d{color:var(--muted);font-size:12px;flex:none;}
+textarea.text-input{resize:vertical;min-height:64px;font-family:inherit;}
